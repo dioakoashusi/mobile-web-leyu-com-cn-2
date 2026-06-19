@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>乐鱼体育 · 轻量导航介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f2f4f7;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+      color: #1f2937;
+      line-height: 1.6;
+      padding: 24px 16px;
+    }
+
+    .page-wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* 顶部导航 */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      padding: 12px 28px;
+      border-radius: 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+      border: 1px solid #e6eaf0;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+    }
+
+    .top-nav .brand {
+      font-weight: 600;
+      font-size: 1.3rem;
+      letter-spacing: 0.02em;
+      color: #0b2c4a;
+    }
+
+    .top-nav .brand span {
+      color: #d97706;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #2b3d53;
+      font-size: 0.95rem;
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: #d97706;
+      color: #0b2c4a;
+    }
+
+    /* hero */
+    .hero {
+      margin-bottom: 48px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: #0b2c4a;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      max-width: 640px;
+      margin: 0 auto 20px;
+      color: #475569;
+      font-size: 1.05rem;
+    }
+
+    .hero .sub-highlight {
+      display: inline-block;
+      background: #ffffff;
+      padding: 8px 24px;
+      border-radius: 60px;
+      border: 1px solid #dde3eb;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+      font-size: 0.95rem;
+      color: #1e3a5f;
+    }
+
+    /* 核心介绍卡片 */
+    .intro-card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 36px 32px;
+      border: 1px solid #e6eaf0;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
+      margin-bottom: 48px;
+    }
+
+    .intro-card h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+      color: #0b2c4a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .intro-card h2::before {
+      content: "⚡";
+      font-size: 1.2rem;
+      opacity: 0.65;
+    }
+
+    .intro-card p {
+      color: #334155;
+      margin-bottom: 18px;
+    }
+
+    .intro-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .intro-card a {
+      color: #d97706;
+      text-decoration: none;
+      border-bottom: 1px dotted #d97706;
+      font-weight: 500;
+    }
+
+    .intro-card a:hover {
+      border-bottom-style: solid;
+      color: #b45309;
+    }
+
+    /* 三个场景模块 */
+    .scenes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    @media (max-width: 768px) {
+      .scenes-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    .scene-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 28px 22px;
+      border: 1px solid #e9edf3;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+      transition: transform 0.15s ease, box-shadow 0.2s;
+    }
+
+    .scene-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .scene-card .icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .scene-card h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: #0b2c4a;
+    }
+
+    .scene-card p {
+      color: #546a7a;
+      font-size: 0.95rem;
+    }
+
+    /* 常见说明 / FAQ 摘要 */
+    .faq-section {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 32px 32px 28px;
+      border: 1px solid #e6eaf0;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.02);
+      margin-bottom: 32px;
+    }
+
+    .faq-section h2 {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #0b2c4a;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .faq-section h2::before {
+      content: "❓";
+      font-size: 1.2rem;
+      opacity: 0.6;
+    }
+
+    .faq-item {
+      padding: 14px 0;
+      border-bottom: 1px solid #edf1f7;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item .q {
+      font-weight: 500;
+      color: #1e3a5f;
+      margin-bottom: 4px;
+    }
+
+    .faq-item .a {
+      color: #546a7a;
+      font-size: 0.95rem;
+    }
+
+    .faq-item .a a {
+      color: #d97706;
+      text-decoration: none;
+      border-bottom: 1px dotted #d97706;
+    }
+
+    .faq-item .a a:hover {
+      border-bottom-style: solid;
+    }
+
+    /* 底部 */
+    .footer-note {
+      text-align: center;
+      color: #7b8ba3;
+      font-size: 0.85rem;
+      border-top: 1px solid #dce2ea;
+      padding-top: 28px;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- 顶部导航 -->
+  <nav class="top-nav">
+    <div class="brand">乐鱼<span>体育</span></div>
+    <div class="nav-links">
+      <a href="#">首页</a>
+      <a href="#">场景</a>
+      <a href="#">说明</a>
+      <a href="#">帮助</a>
+    </div>
+  </nav>
+
+  <!-- hero -->
+  <section class="hero">
+    <h1>乐鱼体育 · 稳定入口</h1>
+    <p>一个偏向轻量、直接的内容与引导页面，帮助日常使用中快速定位到熟悉的界面。</p>
+    <div class="sub-highlight">日常导航 · 三个场景 · 常见说明</div>
+  </section>
+
+  <!-- 核心介绍 -->
+  <section class="intro-card">
+    <h2>页面说明与稳定入口</h2>
+    <p>
+      这里整合了与 <strong>乐鱼体育</strong> 相关的几类常见使用场景，方便在访问时有一个清晰的起点。
+      无论你是在移动端还是桌面浏览器打开，页面都保持简洁、响应，避免信息过载。
+    </p>
+    <p>
+      如果你已经知道要做什么，可以直接通过下面的场景卡片找到对应的说明；
+      如果想了解基础情况，也可以先翻阅后面的常见说明。主站地址依然是
+      <a href="https://mobile-web-leyu.com.cn">乐鱼体育</a>，
+      整个导航围绕它来展开。
+    </p>
+    <p>
+      页面内容不包含下载、注册等引导，仅提供信息索引和风格展示，方便日常快速浏览。
+    </p>
+  </section>
+
+  <!-- 三个场景模块 -->
+  <div class="scenes-grid">
+    <div class="scene-card">
+      <div class="icon">📱</div>
+      <h3>移动端适配</h3>
+      <p>针对手机屏幕调整了布局和触控区域，常用功能入口保持清晰，浏览时不用频繁缩放。</p>
+    </div>
+    <div class="scene-card">
+      <div class="icon">🧭</div>
+      <h3>快速定位</h3>
+      <p>场景卡片与说明分区罗列，减少在多个页面之间来回跳转，适合临时查看信息。</p>
+    </div>
+    <div class="scene-card">
+      <div class="icon">🔄</div>
+      <h3>轻量刷新</h3>
+      <p>页面结构简单，加载快，适合网络环境一般时作为中转参考页来使用。</p>
+    </div>
+  </div>
+
+  <!-- 常见说明 / FAQ 摘要 -->
+  <section class="faq-section">
+    <h2>常见说明</h2>
+
+    <div class="faq-item">
+      <div class="q">这个页面是做什么的？</div>
+      <div class="a">一个辅助介绍与导航页，汇总了几个常见场景和说明，主站是 <a href="https://mobile-web-leyu.com.cn">乐鱼体育</a>，本页不涉及任何账号或交易操作。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="q">页面内容会频繁更新吗？</div>
+      <div class="a">结构相对稳定，但会根据实际情况做一些补充或调整。建议以主站信息为准，本页仅作为轻量参考。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="q">为什么设置三个场景模块？</div>
+      <div class="a">为了把常见的访问需求分成几个方向，方便快速对应：移动适配、定位效率、以及轻量刷新体验。每个卡片对应一个角度。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="q">链接安全吗？风格会不会变？</div>
+      <div class="a">链接直指主站域名 <a href="https://mobile-web-leyu.com.cn">乐鱼体育</a>，视觉上保持浅灰背景、卡片分区与细边框，整体氛围统一，但具体样式会随每次调整略有不同。</div>
+    </div>
+  </section>
+
+  <!-- 底部 -->
+  <div class="footer-note">
+    乐鱼体育 · 轻量导航说明页 · 内容仅供页面展示
+  </div>
+
+</div>
+</body>
+</html>

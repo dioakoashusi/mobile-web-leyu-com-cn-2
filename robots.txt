@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dioakoashusi.github.io/mobile-web-leyu-com-cn-2/sitemap.xml
