@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>蓝鲸体育 – 与你一同感受运动的脉搏</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f3f5f7;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: 2rem 1.2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-wrapper {
+            max-width: 880px;
+            width: 100%;
+        }
+
+        /* 分区卡片 */
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.2rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: box-shadow 0.25s ease;
+        }
+
+        .card:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06), 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        /* 开场 hero 区 —— 短句与氛围 */
+        .hero {
+            text-align: center;
+            padding: 3rem 1.5rem 2.2rem;
+        }
+
+        .hero p:first-child {
+            font-size: 1.1rem;
+            letter-spacing: 0.02em;
+            color: #4b5563;
+            margin-bottom: 0.4rem;
+            font-weight: 350;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #0b1a33;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero .tagline {
+            font-size: 1.15rem;
+            color: #2c3e50;
+            max-width: 480px;
+            margin: 0.8rem auto 0;
+            font-weight: 380;
+            border-top: 1px solid #e0e6ed;
+            padding-top: 1.2rem;
+        }
+
+        /* 承接段落 —— 站点介绍 & 可信说明 */
+        .intro-text {
+            font-size: 1.05rem;
+            color: #1f2a3f;
+            margin-bottom: 1.2rem;
+        }
+
+        .intro-text a {
+            color: #1a4b8c;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #b3c9e8;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .intro-text a:hover {
+            color: #0a2f5a;
+            border-bottom-color: #0a2f5a;
+        }
+
+        .intro-highlight {
+            background: #f0f4fa;
+            padding: 0.8rem 1.2rem;
+            border-radius: 16px;
+            font-size: 0.98rem;
+            color: #1f3a57;
+            border-left: 4px solid #2b6eb0;
+            margin: 1.5rem 0 1rem;
+        }
+
+        /* 特点列表 */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.4rem;
+            margin: 1.8rem 0 0.8rem;
+        }
+
+        .feature-item {
+            background: #f8fafc;
+            border-radius: 18px;
+            padding: 1.2rem 1.2rem 1.1rem;
+            border: 1px solid #e9edf2;
+            transition: background 0.2s;
+        }
+
+        .feature-item:hover {
+            background: #edf2f8;
+        }
+
+        .feature-item .icon {
+            font-size: 1.5rem;
+            display: inline-block;
+            margin-bottom: 0.3rem;
+            color: #1e4d7a;
+        }
+
+        .feature-item h3 {
+            font-size: 1rem;
+            font-weight: 550;
+            margin-bottom: 0.25rem;
+            color: #0b2a4a;
+        }
+
+        .feature-item p {
+            font-size: 0.92rem;
+            color: #2d3f5a;
+            line-height: 1.5;
+        }
+
+        /* 温和结尾 —— 寄语 */
+        .closing-note {
+            background: #f8faff;
+            border-radius: 22px;
+            padding: 1.8rem 2rem;
+            text-align: center;
+            border: 1px solid #dde5f0;
+            margin-top: 0.2rem;
+        }
+
+        .closing-note p {
+            font-size: 1.05rem;
+            color: #203754;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .closing-note .signoff {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: #3f5674;
+            border-top: 1px solid #d0dbe8;
+            padding-top: 1rem;
+            display: inline-block;
+        }
+
+        .closing-note .signoff i {
+            font-style: normal;
+            letter-spacing: 0.3px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+
+            .card {
+                padding: 1.6rem 1.2rem;
+                border-radius: 20px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .feature-item {
+                padding: 1rem;
+            }
+
+            .intro-highlight {
+                padding: 0.7rem 1rem;
+            }
+
+            .closing-note {
+                padding: 1.4rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero p:first-child {
+                font-size: 0.98rem;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+        }
+
+        /* 小细节 */
+        hr.soft-divider {
+            border: none;
+            border-top: 1px solid #dce2ec;
+            margin: 1.6rem 0 1rem;
+            opacity: 0.5;
+        }
+
+        .footnote {
+            font-size: 0.9rem;
+            color: #5a6e86;
+            text-align: center;
+            margin-top: 1.8rem;
+            padding: 0 0.5rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- 开场短句 & hero -->
+    <div class="card hero">
+        <p>—— 从一声哨响开始 ——</p>
+        <h1>蓝鲸体育</h1>
+        <div class="tagline">
+            不是所有热爱都要大声呼喊，有时候只需要一个安静的注视。
+        </div>
+    </div>
+
+    <!-- 承接段落：站点介绍 & 可信说明 -->
+    <div class="card">
+        <div class="intro-text">
+            <p>在体育世界里，每一帧都藏着故事。而<strong>蓝鲸体育</strong>，正是为这些故事准备的一个安静角落。这里没有喧哗的弹窗，也没有浮夸的标语，只有一份朴素的愿望：让喜欢运动的人，能更从容地走近赛场与日常训练。</p>
+        </div>
+
+        <div class="intro-highlight">
+            ⚡ 关于可信度：<strong>蓝鲸体育</strong> 的页面结构简洁、稳定，内容更新保持克制与真实。我们相信，一个值得信赖的体育站点，不需要堆砌证书，而是靠每一次清晰的信息传递赢得用户。你可以随时通过 <a href="https://cn-sports-lanjingtv.com">蓝鲸体育</a> 了解更多，站点采用常规传输与安全措施，并持续优化访问体验。
+        </div>
+
+        <p style="margin-top: 0.2rem; font-size: 0.96rem; color: #2c405c;">
+            无论你是资深球迷，还是偶尔跑跑步、打打球的人，这里提供的赛事资讯与运动常识都尽量保持客观，不渲染焦虑，也不制造对立。
+        </p>
+    </div>
+
+    <!-- 特点列表：卡片式两列 -->
+    <div class="card">
+        <h2 style="font-weight: 500; font-size: 1.25rem; margin-bottom: 0.25rem; color: #142b44;">⚙️ 特点与细节</h2>
+        <p style="color: #405870; font-size: 0.96rem; margin-bottom: 0.8rem;">在平凡中寻找可靠，在细节里坚持真诚</p>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <div class="icon">📋</div>
+                <h3>信息平实</h3>
+                <p>不渲染情绪，不夸大比分之外的戏剧性。比赛数据、运动员动态都以可查证的方式呈现。</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">🧭</div>
+                <h3>导航清晰</h3>
+                <p>板块分区明确，无论你想看赛事预告还是基础规则，都能快速定位，不浪费注意力。</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">📱</div>
+                <h3>适配顺手</h3>
+                <p>页面在手机和电脑上都保持易读，不强制下载应用，打开浏览器即可浏览。</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">🔒</div>
+                <h3>简约访问</h3>
+                <p>没有复杂的会员墙或隐藏跳转，每一次点击都基于你的真实意愿。</p>
+            </div>
+        </div>
+        <hr class="soft-divider">
+        <p style="font-size: 0.93rem; color: #3c5670; margin-top: 0.2rem;">
+            🏅 其中一些内容会围绕国内关注度较高的运动项目展开，比如篮球、足球、田径与乒乓球。
+            若你也在寻找一个不吵不闹的体育信息站点，不妨从 <a href="https://cn-sports-lanjingtv.com">蓝鲸体育</a> 开始你的浏览。
+        </p>
+    </div>
+
+    <!-- 温和结尾 + 寄语 -->
+    <div class="card closing-note">
+        <p>体育之所以动人，不止因为胜负。那些清晨的慢跑、深夜的加练、看台上的一声加油，都值得被好好记录。</p>
+        <div class="signoff">
+            <i>—— 蓝鲸体育 · 陪你安静地热爱运动</i>
+        </div>
+    </div>
+
+    <!-- 小提示 / FAQ 摘要 (不另起独立卡片, 轻量融入) -->
+    <div style="margin-top: 1.4rem; font-size: 0.88rem; color: #586f8a; background: #ecf1f8; padding: 0.6rem 1.2rem; border-radius: 40px; text-align: center; border: 1px solid #d7e0ec;">
+        ❓ 常见疑问摘要：网站内容多久更新？—— 通常跟随主要赛事节奏，不定期补充常识类文章；所有信息仅供参考。
+    </div>
+
+    <div class="footnote">
+        <span>© 蓝鲸体育 · 呈现体育本来的样子</span>
+    </div>
+
+</div>
+</body>
+</html>
