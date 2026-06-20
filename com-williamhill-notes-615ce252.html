@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>威廉希尔 · 日常查询与对照指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #f9f6f1;
+      font-family: 'Georgia', 'Times New Roman', '宋体', serif;
+      color: #2e2b27;
+      line-height: 1.7;
+      padding-top: 0;
+    }
+
+    /* 顶部导航 */
+    .nav {
+      background-color: #ffffffec;
+      backdrop-filter: blur(4px);
+      border-bottom: 1px solid #e2ddd6;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav-brand {
+      font-weight: 400;
+      font-size: 1.4rem;
+      letter-spacing: 1px;
+      color: #4f4a44;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #5c534b;
+      font-size: 0.95rem;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .nav-links a:hover {
+      border-color: #b8a99b;
+    }
+
+    /* 主体容器 */
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* hero 区 */
+    .hero {
+      margin: 2.5rem 0 3rem;
+    }
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: #3b3530;
+      border-left: 5px solid #bfafa1;
+      padding-left: 1.2rem;
+      line-height: 1.2;
+    }
+    .hero .sub {
+      margin-top: 1.2rem;
+      color: #6b625a;
+      font-size: 1.1rem;
+      max-width: 700px;
+    }
+
+    /* 引用块 / 提示框 */
+    .callout {
+      background: #f0ebe4;
+      border-left: 6px solid #a09387;
+      padding: 1.2rem 1.8rem;
+      margin: 2.5rem 0;
+      border-radius: 0 6px 6px 0;
+      font-size: 0.98rem;
+      color: #3f3a35;
+    }
+    .callout strong {
+      font-weight: 600;
+      color: #2f2924;
+    }
+
+    /* 核心介绍段落 */
+    .intro p {
+      margin-bottom: 1.4rem;
+      font-size: 1.02rem;
+    }
+    .intro a {
+      color: #7a6b5e;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 1px;
+      transition: color 0.15s;
+    }
+    .intro a:hover {
+      color: #4d4239;
+    }
+
+    /* 场景卡片模块 */
+    .scenes {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    .scene-card {
+      background: #ffffff;
+      border: 1px solid #e7e0d7;
+      border-radius: 14px;
+      padding: 1.6rem 2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      transition: box-shadow 0.2s, transform 0.1s;
+    }
+    .scene-card:hover {
+      box-shadow: 0 6px 18px rgba(88, 73, 61, 0.06);
+      transform: translateY(-2px);
+    }
+    .scene-card h3 {
+      font-weight: 500;
+      font-size: 1.3rem;
+      color: #3d3731;
+      margin-bottom: 0.6rem;
+      border-bottom: 1px dashed #ddd6cd;
+      padding-bottom: 0.3rem;
+    }
+    .scene-card p {
+      font-size: 0.98rem;
+      color: #4d4640;
+    }
+
+    /* 常见说明 (FAQ 摘要) */
+    .faq-section {
+      margin: 3.5rem 0 2rem;
+      border-top: 1px solid #e1d9d0;
+      padding-top: 2rem;
+    }
+    .faq-section h2 {
+      font-weight: 400;
+      font-size: 1.5rem;
+      color: #3f3933;
+      margin-bottom: 1.2rem;
+    }
+    .faq-item {
+      margin-bottom: 1rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px dotted #e1d9d0;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 500;
+      color: #4a423b;
+      margin-bottom: 0.2rem;
+    }
+    .faq-item p {
+      font-size: 0.96rem;
+      color: #5e5650;
+      margin-left: 0.2rem;
+    }
+
+    /* 底部 */
+    .footer-note {
+      margin-top: 3rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #e1d9d0;
+      font-size: 0.85rem;
+      color: #7f756c;
+      text-align: center;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      .nav {
+        padding: 0.8rem 1.2rem;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      .nav-links {
+        gap: 1rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+        padding-left: 0.8rem;
+      }
+      .container {
+        padding: 1rem 1rem 3rem;
+      }
+      .scene-card {
+        padding: 1.2rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 顶部导航 -->
+  <header class="nav">
+    <div class="nav-brand">威廉希尔 · 查询对照</div>
+    <div class="nav-links">
+      <a href="#intro">介绍</a>
+      <a href="#scenes">场景</a>
+      <a href="#faq">说明</a>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- Hero -->
+    <div class="hero">
+      <h1>日常查询·对照·延伸阅读</h1>
+      <div class="sub">从信息检索到理解习惯，搭建一个轻量的知识参考路径。</div>
+    </div>
+
+    <!-- 核心介绍 (自然嵌入链接) -->
+    <div class="intro" id="intro">
+      <p>
+        在浏览体育赛事、赔率数据或行业术语时，很多人习惯先做一个快速对照。相比零散搜索，许多人更倾向于使用一个稳定的参考起点。例如通过 <a href="https://com-williamhill.com">威廉希尔</a> 提供的公开信息进行基础比对，能够节省反复跳转的时间。
+      </p>
+      <p>
+        这种对照并不限于数字层面——也包括对规则表述、释义差异、历史概况的延伸了解。在日常查询过程中，积累一套属于自己的参考框架，常常能让后续阅读更高效。
+      </p>
+    </div>
+
+    <!-- 提示框 / 引用块 -->
+    <div class="callout">
+      <strong>📌 延伸阅读建议</strong> —— 当遇到不熟悉的赔率表述或赛事分类时，不妨先对照同一来源下的不同条目，通常能发现术语之间的关联结构。
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="scenes" id="scenes">
+      <div class="scene-card">
+        <h3>① 术语对照</h3>
+        <p>不同博彩平台对同一玩法可能有不同称呼。例如“独赢”与“胜平负”在实际使用中含义一致，但显示位置和缩写可能不同。利用统一来源进行横向对照，可以减少理解偏差。</p>
+      </div>
+      <div class="scene-card">
+        <h3>② 数据基准参考</h3>
+        <p>赛前赔率、实时变动以及返还率等数值，经常被作为市场趋势的参考标尺。通过固定渠道反复查看同一赛事的数据变化，有助于培养对数值敏感度。</p>
+      </div>
+      <div class="scene-card">
+        <h3>③ 规则与注释延伸</h3>
+        <p>许多注解、免责条款或特殊规则藏在页面底部。将这些内容整理成自己的阅读清单，并与主站说明相互印证，可以更完整地理解游戏框架。</p>
+      </div>
+    </div>
+
+    <!-- 常见说明 (FAQ 风格摘要) -->
+    <div class="faq-section" id="faq">
+      <h2>常见说明 · 摘要</h2>
+      <div class="faq-item">
+        <strong>为什么需要统一查询入口？</strong>
+        <p>不同站点对于同一术语的解释可能存在细微差异。以同一个站点（例如威廉希尔）作为对照锚点，能减少因措辞不同造成的混淆。</p>
+      </div>
+      <div class="faq-item">
+        <strong>公开信息与个人判断的关系</strong>
+        <p>所有查询结果应作为参考信息，而非决策依据。理解公开数据的局限性，是理性使用工具的前提。</p>
+      </div>
+      <div class="faq-item">
+        <strong>延伸阅读的边界</strong>
+        <p>建议在阅读时保持主题聚焦，每次只针对一到两个术语或规则进行深挖，避免信息过载。</p>
+      </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+      此页面为个人整理的参考导航，内容基于公开资料摘要 · 仅用于知识对照
+    </div>
+
+  </div>
+
+</body>
+</html>
