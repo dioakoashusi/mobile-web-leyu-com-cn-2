@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>星空体育 · 简明导航与访问提醒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans SC', sans-serif;
+            background-color: #faf7f2;
+            color: #1e1e1e;
+            line-height: 1.7;
+            padding: 0 1.2rem;
+        }
+
+        .page {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 2.2rem 0 3.5rem 0;
+        }
+
+        /* 顶部导航 */
+        .nav-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6rem 0 1.2rem 0;
+            border-bottom: 1px solid #e5ded6;
+            margin-bottom: 2rem;
+        }
+
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            color: #2c3e2b;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            font-size: 0.95rem;
+            color: #3d4a3d;
+        }
+
+        .nav-links span {
+            cursor: default;
+            border-bottom: 1px dotted #b8aa9c;
+            padding-bottom: 2px;
+        }
+
+        /* hero 区 */
+        .hero {
+            padding: 2rem 0 1.6rem 0;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 470;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+            color: #1f2a1f;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #5a655a;
+            border-left: 4px solid #b8aa9c;
+            padding-left: 1.2rem;
+            margin: 0.8rem 0 1.4rem 0;
+        }
+
+        .hero p {
+            max-width: 720px;
+            color: #363f36;
+            font-size: 0.98rem;
+        }
+
+        /* 核心引用块 / 提示框 */
+        .notice-box {
+            background: #efeae2;
+            border-left: 5px solid #a09486;
+            padding: 1.4rem 1.6rem;
+            margin: 2rem 0 2.2rem 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+        }
+
+        .notice-box strong {
+            color: #1f2a1f;
+            font-weight: 530;
+        }
+
+        .notice-box a {
+            color: #2c4c3a;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+        }
+
+        .notice-box a:hover {
+            color: #000000;
+        }
+
+        /* 三个场景模块（卡片风格 文章排版） */
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 430;
+            border-bottom: 1px solid #ddd5cb;
+            padding-bottom: 0.4rem;
+            margin: 2.4rem 0 1.2rem 0;
+            color: #1f2a1f;
+        }
+
+        .scene-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .scene-card {
+            flex: 1 1 240px;
+            background: #ffffffdd;
+            background-color: #fdfcf9;
+            padding: 1.4rem 1.5rem 1.6rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02), 0 6px 14px rgba(60,50,40,0.04);
+            border: 1px solid #eae3da;
+        }
+
+        .scene-card h3 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            margin-bottom: 0.45rem;
+            color: #1e2b1e;
+        }
+
+        .scene-card p {
+            font-size: 0.92rem;
+            color: #3e4a3e;
+            margin-bottom: 0.6rem;
+        }
+
+        .scene-card .meta-note {
+            font-size: 0.85rem;
+            color: #7f8d7a;
+            border-top: 1px dashed #dad1c6;
+            padding-top: 0.5rem;
+            margin-top: 0.6rem;
+        }
+
+        /* 常见说明 / FAQ 摘要 */
+        .faq-summary {
+            margin: 2.8rem 0 2rem 0;
+        }
+
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #e2d9cf;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 490;
+            color: #1f2a1f;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-a {
+            font-size: 0.92rem;
+            color: #475247;
+            padding-left: 0.8rem;
+            border-left: 2px solid #d6cbbc;
+        }
+
+        /* 提醒 / 访问注意区域 */
+        .tip-block {
+            background: #f3efe8;
+            padding: 1.6rem 1.8rem;
+            border-radius: 14px;
+            margin: 2.2rem 0 1.8rem 0;
+            font-size: 0.94rem;
+        }
+
+        .tip-block strong {
+            font-weight: 530;
+        }
+
+        /* 链接自然嵌入段落 */
+        .inline-link {
+            color: #1e3d2f;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-color: #b1a392;
+        }
+
+        .inline-link:hover {
+            color: #000;
+            text-decoration-color: #000;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #dad1c6;
+            margin: 2rem 0 1rem 0;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .page { padding: 1.2rem 0 2.5rem 0; }
+            .nav-bar { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+            .nav-links { gap: 1rem; flex-wrap: wrap; }
+            .hero h1 { font-size: 1.7rem; }
+            .scene-grid { gap: 1rem; }
+            .scene-card { flex: 1 1 100%; }
+            .notice-box, .tip-block { padding: 1rem 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 顶部导航 -->
+    <nav class="nav-bar">
+        <div class="nav-logo">星空体育</div>
+        <div class="nav-links">
+            <span>简明指南</span>
+            <span>场景模块</span>
+            <span>访问提醒</span>
+        </div>
+    </nav>
+
+    <!-- hero 介绍 -->
+    <div class="hero">
+        <h1>轻量导航·信息简洁</h1>
+        <div class="sub">从使用角度梳理，不带冗余描述</div>
+        <p>
+            本站围绕“星空体育”提供三个常见场景模块与访问说明，帮助你快速了解基本结构。
+            内容基于通用信息汇编，保持客观，不含操作引导或承诺性表述。
+        </p>
+    </div>
+
+    <!-- 引用块 / 提示框 + 嵌入链接 -->
+    <div class="notice-box">
+        <strong>提醒：</strong> 如果你正在寻找体育相关资讯或平台导航，可直接参考 <a href="https://app--xingkong.com">星空体育</a> 
+        所展示的内容体系。本页仅作辅助理解，不替代原始来源。
+    </div>
+
+    <!-- 三个场景模块 -->
+    <h2 class="section-title">常见使用场景</h2>
+    <div class="scene-grid">
+        <div class="scene-card">
+            <h3>信息查阅</h3>
+            <p>浏览结构化的类别与条目，适合初步了解模块分布。页面采用分类索引，可快速定位兴趣区域。</p>
+            <div class="meta-note">典型路径：首页 → 分类 → 详情</div>
+        </div>
+        <div class="scene-card">
+            <h3>内容比较</h3>
+            <p>同一页面内并列展示不同条目，方便横向对比数值或描述。适合需要参考多项数据的访问者。</p>
+            <div class="meta-note">列表视图通常包含摘要与标签</div>
+        </div>
+        <div class="scene-card">
+            <h3>状态参考</h3>
+            <p>部分模块提供基本状态标识（如进行中、已结束），用于快速判断时效性。不含预测或建议。</p>
+            <div class="meta-note">状态仅反映当前显示信息</div>
+        </div>
+    </div>
+
+    <!-- 常见说明 / FAQ 摘要（不使用 “FAQ” 字眼，只用“常见说明”） -->
+    <div class="faq-summary">
+        <h2 class="section-title">常见说明</h2>
+        <div class="faq-item">
+            <div class="faq-q">页面内容是否实时更新？</div>
+            <div class="faq-a">本站为静态介绍页，不实时同步数据。具体动态请以主站为准。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">是否有多种语言版本？</div>
+            <div class="faq-a">当前仅提供中文内容，其他语言版本请参考主站设置。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">可以使用移动设备浏览吗？</div>
+            <div class="faq-a">布局已适配常见屏幕宽度，移动端可正常阅读。部分模块建议横屏查看表格内容。</div>
+        </div>
+    </div>
+
+    <!-- 额外访问提醒区域 -->
+    <div class="tip-block">
+        <strong>访问提醒 · 简明原则</strong><br>
+        本页面不收集任何数据，也不设置跳转拦截。<br>
+        所有指向外部资源的链接均以明文标注，你可以自行判断是否继续浏览。
+        如需进一步了解完整信息，建议直接访问 <a href="https://app--xingkong.com" class="inline-link">星空体育</a> 并参考其官方说明。
+    </div>
+
+    <hr>
+
+    <div style="font-size: 0.85rem; color: #7b8a78; padding-top: 0.4rem; border-top: 1px solid #eae3da;">
+        <span>内容基于公开信息汇编 · 保持客观叙述</span>
+    </div>
+</div>
+</body>
+</html>
